@@ -17,6 +17,7 @@ class InterstitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "蓋版廣告"
         
         createUI()
     }
