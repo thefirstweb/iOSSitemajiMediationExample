@@ -6,190 +6,126 @@
 //
 
 import UIKit
-import GoogleMobileAds
+
+extension NSObject {
+    class func fromClassName(className : String) -> NSObject {
+        let className = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + className
+        
+        if let toClass: UIViewController.Type = NSClassFromString(className) as? UIViewController.Type {
+            let toController: UIViewController = toClass.init()
+            return toController
+        }
+        
+        return NSObject.init()
+    }
+}
 
 class ViewController: UIViewController {
-    var interstitial: GADInterstitial!
-    var bannerView: GADBannerView!
+    private var settingList = Array<Array<Dictionary<String, String>>>()
+    let settingListTableView:UITableView = UITableView(frame: CGRect.zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        interstitial = createAndLoadInterstitial()
-        
-        // In this case, we instantiate the banner with desired ad size.
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-8618425161170926/3924096662"
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        addBannerViewToView(bannerView)
-        bannerView.load(GADRequest())
+        createUI()
+        getData()
+        cellRegister()
     }
-
-    func createAndLoadInterstitial() -> GADInterstitial {
-      var interstitial = GADInterstitial(adUnitID: "ca-app-pub-8618425161170926/5791889714")
-      interstitial.delegate = self
-      interstitial.load(GADRequest())
-      return interstitial
-    }
-}
-
-extension ViewController:GADBannerViewDelegate {
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: bottomLayoutGuide,
-                              attribute: .top,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
     
-    /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("adViewDidReceiveAd")
+    func createUI() {
+        let settingListTableViewOriginY:CGFloat = 0
+        let settingListTableViewHeight:CGFloat = self.view.frame.size.height
+        settingListTableView.frame = CGRect.init(x: 0, y: settingListTableViewOriginY, width: self.view.frame.size.width, height: settingListTableViewHeight)
+        settingListTableView.separatorStyle = .singleLine
+        settingListTableView.showsVerticalScrollIndicator = false
+        settingListTableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        settingListTableView.delegate = self
+        settingListTableView.dataSource = self
+        
+        self.view.addSubview(settingListTableView)
     }
-
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-        didFailToReceiveAdWithError error: GADRequestError) {
-      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    /// Tells the delegate that a full-screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("adViewWillPresentScreen")
-    }
-
-    /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewWillDismissScreen")
-    }
-
-    /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewDidDismissScreen")
-    }
-
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-      print("adViewWillLeaveApplication")
+    
+    func cellRegister() {
+        settingListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CodeCell")
     }
 }
 
-extension ViewController:GADInterstitialDelegate {
-    /// Tells the delegate an ad request succeeded.
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-      print("interstitialDidReceiveAd")
-        if interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
+extension ViewController {
+    //MARK: - Get Data
+    private func getData(isRefreshData:Bool = false){
+        self.settingList.removeAll()
+        
+        var section0Array:Array<Any> = []
+        let bannerDic = self.makeItemWithGAType(title: "橫幅廣告", action: "controller", link: "BannerViewController")
+        section0Array.append(bannerDic)
+        
+        var section1Array:Array<Any> = []
+        let InterstitialDic = self.makeItemWithGAType(title: "蓋版廣告", action: "controller", link: "InterstitialViewController")
+        section1Array.append(InterstitialDic)
+        
+        self.settingList.append(section0Array as! [Dictionary<String, String>])
+        self.settingList.append(section1Array as! [Dictionary<String, String>])
+    }
+    
+    private func makeItemWithGAType(title:String = "",action:String = "",link:String = "",type:String = "",isShowAccessory:String = "true") -> Dictionary<String, String>{
+        var tempDic:[String:String] = [:]
+        tempDic["title"] = title
+        tempDic["action"] = action
+        tempDic["link"] = link
+        tempDic["type"] = type
+        tempDic["isShowAccessory"] = isShowAccessory
+
+        return tempDic
+    }
+}
+
+extension ViewController: UITableViewDelegate,UITableViewDataSource {
+    //MARK: - UITableView delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.settingList.count
+    }
+    
+    // 必須實作的方法：每一組有幾個 cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (self.settingList[section] as AnyObject).count
+    }
+    
+    // 必須實作的方法：每個 cell 要顯示的內容
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemDic = self.settingList[indexPath.section][indexPath.row] as Dictionary
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath as IndexPath) as! UITableViewCell
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.white
+        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = ""
+        cell.detailTextLabel?.text = ""
+        
+        cell.textLabel?.text = itemDic["title"]
+        cell.textLabel?.textAlignment = .left
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
+        cell.detailTextLabel?.text = ""
+        
+        if itemDic["isShowAccessory"] == "true" {
+            cell.accessoryType = .disclosureIndicator
+        }else{
+            cell.accessoryType = .none
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let controllerName = self.settingList[indexPath.section][indexPath.row]["link"] {
+            if let vc = NSObject.fromClassName(className: controllerName) as? UIViewController {
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
     }
-
-    /// Tells the delegate an ad request failed.
-    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-      print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    /// Tells the delegate that an interstitial will be presented.
-    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
-      print("interstitialWillPresentScreen")
-    }
-
-    /// Tells the delegate the interstitial is to be animated off the screen.
-    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-      print("interstitialWillDismissScreen")
-    }
-
-    /// Tells the delegate the interstitial had been animated off the screen.
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-      print("interstitialDidDismissScreen")
-    }
-
-    /// Tells the delegate that a user click will open another app
-    /// (such as the App Store), backgrounding the current app.
-    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-      print("interstitialWillLeaveApplication")
-    }
-}
-
-extension ViewController:GADCustomEventInterstitialDelegate {
-    func requestAd(withParameter serverParameter: String?, label serverLabel: String?, request: GADCustomEventRequest) {
-        print("request")
-//          interstitial = SampleInterstitial()
-//          interstitial.delegate = self
-//          interstitial.adUnit = serverParameter
-//          let adRequest = SampleAdRequest()
-//          adRequest.testMode = request.isTesting
-//          adRequest.keywords = request.userKeywords
-//          interstitial.fetchAd(adRequest)
-    }
     
-    func present(fromRootViewController rootViewController: UIViewController) {
-        print("present")
-//        if interstitial.interstitialLoaded {
-//            interstitial.show()
-//          }
-    }
-    
-    func customEventInterstitialDidReceiveAd(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialDidReceiveAd")
-    }
-    
-    func customEventInterstitial(_ customEvent: GADCustomEventInterstitial, didFailAd error: Error?) {
-        print("customEventInterstitial")
-    }
-    
-    func customEventInterstitialWasClicked(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialWasClicked")
-    }
-    
-    func customEventInterstitialDidDismiss(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialDidDismiss")
-    }
-    
-    func customEventInterstitialWillPresent(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialWillPresent")
-    }
-    
-    func customEventInterstitialWillDismiss(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialWillDismiss")
-    }
-    
-    func customEventInterstitialWillLeaveApplication(_ customEvent: GADCustomEventInterstitial) {
-        print("customEventInterstitialWillLeaveApplication")
-    }
-    
-    func customEventInterstitial(_ customEvent: GADCustomEventInterstitial, didReceiveAd ad: NSObject) {
-        print("customEventInterstitial")
-    }
-}
-
-class CustomInterstitial: NSObject,GADCustomEventInterstitial {
-    var delegate: GADCustomEventInterstitialDelegate?
-    
-    required override init() {
-        super.init()
-    }
-    
-    func requestAd(withParameter serverParameter: String?, label serverLabel: String?, request: GADCustomEventRequest) {
-        print("paramater:\(serverParameter) label:\(serverLabel)")
-    }
-    
-    func present(fromRootViewController rootViewController: UIViewController) {
-        print("present")
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 44.0
     }
 }
