@@ -205,12 +205,18 @@ extension CustomInterstitial:SMJWebADHandlerDelegate {
     func adDidClick() {
         print("ad did click")
         //可以在這裡關閉廣告
+        self.delegate?.customEventInterstitialWillLeaveApplication(self)
         self.delegate?.customEventInterstitialWasClicked(self)
     }
     //廣告讀取有問題時callback
     func adFetchError(errorMsg: String) {
         print("error:\(errorMsg)")
+        adVC?.dismiss(animated: false, completion: nil)
         self.delegate?.customEventInterstitial(self, didFailAd: nil)
+    }
+    
+    func adFetchSuccess() {
+        self.delegate?.customEventInterstitialDidReceiveAd(self)
     }
     
     //廣告關閉按鈕被點擊時，此為optional

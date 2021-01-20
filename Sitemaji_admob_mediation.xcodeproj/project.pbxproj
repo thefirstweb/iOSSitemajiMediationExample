@@ -17,6 +17,7 @@
 		FA7A58D625B6C29A007FE68B /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58D525B6C29A007FE68B /* InterstitialViewController.swift */; };
 		FA7A58D925B6C319007FE68B /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58D825B6C319007FE68B /* BannerViewController.swift */; };
 		FA7A58ED25B7E7FA007FE68B /* SMJWebADHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */; };
+		FA7A58F025B81D40007FE68B /* CustomBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FA7A58D525B6C29A007FE68B /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 		FA7A58D825B6C319007FE68B /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMJWebADHandler.swift; sourceTree = "<group>"; };
+		FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				FA7A58A425B18DE8007FE68B /* SceneDelegate.swift */,
 				FA7A58A625B18DE8007FE68B /* ViewController.swift */,
 				FA7A58D525B6C29A007FE68B /* InterstitialViewController.swift */,
+				FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */,
 				FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */,
 				FA7A58D825B6C319007FE68B /* BannerViewController.swift */,
 				FA7A58A825B18DE8007FE68B /* Main.storyboard */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7A58F025B81D40007FE68B /* CustomBannerViewController.swift in Sources */,
 				FA7A58D925B6C319007FE68B /* BannerViewController.swift in Sources */,
 				FA7A58ED25B7E7FA007FE68B /* SMJWebADHandler.swift in Sources */,
 				FA7A58D625B6C29A007FE68B /* InterstitialViewController.swift in Sources */,
