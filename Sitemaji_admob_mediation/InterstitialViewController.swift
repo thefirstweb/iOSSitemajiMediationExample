@@ -128,6 +128,7 @@ class CustomInterstitial: NSObject,GADCustomEventInterstitial {
         
         //init custom intersitial
         self.delegate?.customEventInterstitialDidReceiveAd(self)
+//        self.delegate?.customEventInterstitial(self, didFailAd: nil)
     }
     
     func present(fromRootViewController rootViewController: UIViewController) {
