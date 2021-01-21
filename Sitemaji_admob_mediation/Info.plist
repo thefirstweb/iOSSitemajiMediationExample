@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-8618425161170926~2329376213</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -27,6 +27,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>permission for use calendar</string>
+	<key>NSCameraUsageDescription</key>
+	<string>permission for use camera</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>permission for use location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>permission for use location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>permission for use location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>permission for use photo</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -66,8 +78,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
