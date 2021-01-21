@@ -71,8 +71,8 @@ extension InterstitialViewController:GADInterstitialDelegate {
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         print("interstitialDidReceiveAd")
         showLog(msg:"interstitialDidReceiveAd")
-        if let adClassName = ad.responseInfo?.adNetworkClassName {
-            showLog(msg: "class name:\(adClassName)")
+        if let adResponseInfo = ad.responseInfo {
+            showLog(msg: "response info:\(adResponseInfo)")
         }
         
         if interstitial.isReady {

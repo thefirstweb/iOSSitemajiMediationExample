@@ -1,4 +1,7 @@
 PODS:
+  - AdMobMediationAdapterVpadn (2.0.4):
+    - Google-Mobile-Ads-SDK (>= 7.47.0)
+    - VpadnSDK (>= 5.1.7)
   - FBAudienceNetwork (6.2.0):
     - FBSDKCoreKit/Basics (>= 7.0.1)
   - FBSDKCoreKit/Basics (8.2.0)
@@ -49,16 +52,20 @@ PODS:
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
   - PromisesObjC (1.2.12)
+  - VpadnSDK (5.1.8)
 
 DEPENDENCIES:
+  - AdMobMediationAdapterVpadn
   - FBAudienceNetwork (= 6.2.0)
   - Google-Mobile-Ads-SDK
   - GoogleMobileAdsMediationFacebook
   - GoogleMobileAdsMediationInMobi
   - InMobiSDK
+  - VpadnSDK
 
 SPEC REPOS:
   trunk:
+    - AdMobMediationAdapterVpadn
     - FBAudienceNetwork
     - FBSDKCoreKit
     - Google-Mobile-Ads-SDK
@@ -70,8 +77,10 @@ SPEC REPOS:
     - InMobiSDK
     - nanopb
     - PromisesObjC
+    - VpadnSDK
 
 SPEC CHECKSUMS:
+  AdMobMediationAdapterVpadn: c6f0b985fb8c4ada61c68dbab0c2afd51ee97acd
   FBAudienceNetwork: 69193f0362accc40305703fb3265342416971446
   FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
   Google-Mobile-Ads-SDK: 2f288748a42920d1c744946a460896a95b0e9110
@@ -83,7 +92,8 @@ SPEC CHECKSUMS:
   InMobiSDK: 382053e389cc1acd6603079e0ef0fd6e8b1e3e97
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  VpadnSDK: 2e4507a8a85183e95b872b77441577ef268275c0
 
-PODFILE CHECKSUM: ccebf6b80e242ac48188e3f9112551c8ce271419
+PODFILE CHECKSUM: 540d17d9cf438264eea629ff065678b912a3fb78
 
 COCOAPODS: 1.9.3

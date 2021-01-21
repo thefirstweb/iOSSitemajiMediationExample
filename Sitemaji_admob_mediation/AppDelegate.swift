@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import VpadnSDKAdKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["88e7b8546ab9996522304d3feaf8f420"];
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.sharedInstance()
+        config.logLevel = .default
+        config.initializeSdk()
+        
         return true
     }
 

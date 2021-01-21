@@ -87,8 +87,8 @@ extension BannerViewController:GADBannerViewDelegate {
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("adViewDidReceiveAd")
         showLog(msg: "adViewDidReceiveAd")
-        if let adClassName = bannerView.responseInfo?.adNetworkClassName {
-            showLog(msg: "class name:\(adClassName)")
+        if let adResponseInfo = bannerView.responseInfo {
+            showLog(msg: "response info:\(adResponseInfo)")
         }
         addBannerViewToView(bannerView)
     }

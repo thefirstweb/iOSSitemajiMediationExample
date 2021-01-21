@@ -6,4 +6,6 @@ target "Sitemaji_admob_mediation" do
   pod 'FBAudienceNetwork', '6.2.0'
   pod 'InMobiSDK'
   pod 'GoogleMobileAdsMediationInMobi'
+  pod 'VpadnSDK'
+  pod 'AdMobMediationAdapterVpadn'
 end
