@@ -14,6 +14,9 @@ PODS:
   - GoogleMobileAdsMediationFacebook (6.2.0.0):
     - FBAudienceNetwork (= 6.2.0)
     - Google-Mobile-Ads-SDK (>= 7.67.0)
+  - GoogleMobileAdsMediationInMobi (9.1.1.0):
+    - Google-Mobile-Ads-SDK (>= 7.68.0)
+    - InMobiSDK/Core (= 9.1.1)
   - GoogleUserMessagingPlatform (1.4.0)
   - GoogleUtilities/AppDelegateSwizzler (7.1.1):
     - GoogleUtilities/Environment
@@ -32,6 +35,14 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.1.1)"
   - GoogleUtilities/Reachability (7.1.1):
     - GoogleUtilities/Logger
+  - InMobiSDK (9.1.1):
+    - InMobiSDK/InMobiSDK (= 9.1.1)
+  - InMobiSDK/Core (9.1.1)
+  - InMobiSDK/InMobiSDK (9.1.1):
+    - InMobiSDK/Core
+    - InMobiSDK/Moat
+  - InMobiSDK/Moat (9.1.1):
+    - InMobiSDK/Core
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
@@ -43,6 +54,8 @@ DEPENDENCIES:
   - FBAudienceNetwork (= 6.2.0)
   - Google-Mobile-Ads-SDK
   - GoogleMobileAdsMediationFacebook
+  - GoogleMobileAdsMediationInMobi
+  - InMobiSDK
 
 SPEC REPOS:
   trunk:
@@ -51,8 +64,10 @@ SPEC REPOS:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleMobileAdsMediationFacebook
+    - GoogleMobileAdsMediationInMobi
     - GoogleUserMessagingPlatform
     - GoogleUtilities
+    - InMobiSDK
     - nanopb
     - PromisesObjC
 
@@ -62,11 +77,13 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 2f288748a42920d1c744946a460896a95b0e9110
   GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
   GoogleMobileAdsMediationFacebook: ddb77010c35140cbd974c12c30a93a170a29d5ef
+  GoogleMobileAdsMediationInMobi: 059a87ffe1b8611f62b3a26b78df9cd1df655eec
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
+  InMobiSDK: 382053e389cc1acd6603079e0ef0fd6e8b1e3e97
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 6fbc93e053105becb77ecea8097e7a1a82ca5e6d
+PODFILE CHECKSUM: ccebf6b80e242ac48188e3f9112551c8ce271419
 
 COCOAPODS: 1.9.3
