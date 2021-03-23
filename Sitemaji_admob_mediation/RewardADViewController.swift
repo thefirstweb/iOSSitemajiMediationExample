@@ -16,16 +16,6 @@ class RewardADViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
-        
-//        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
-        
-//        rewardedAd?.load(GADRequest()) { error in
-//              if let error = error {
-//                // Handle ad failed to load case.
-//              } else {
-//                // Ad successfully loaded.
-//              }
-//            }
     }
     
     func createUI() {
@@ -33,7 +23,7 @@ class RewardADViewController: UIViewController {
         
         textField = UITextView.init(frame: CGRect.init(x: 20, y: 120, width: self.view.frame.size.width - 40, height: 40))
         textField.backgroundColor = UIColor.gray
-        textField.text = "ca-app-pub-3940256099942544/1712485313"
+        textField.text = "ca-app-pub-8618425161170926/6823649837"
         
         let button = UIButton.init(frame: CGRect.init(x: 20, y: textField.frame.maxY + 20, width: self.view.frame.size.width - 40, height: 40))
         button.setTitle("Show AD", for: .normal)
