@@ -18,6 +18,7 @@
 		FA7A58D925B6C319007FE68B /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58D825B6C319007FE68B /* BannerViewController.swift */; };
 		FA7A58ED25B7E7FA007FE68B /* SMJWebADHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */; };
 		FA7A58F025B81D40007FE68B /* CustomBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */; };
+		FAC778172609F1B400EE4293 /* RewardADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC778162609F1B400EE4293 /* RewardADViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FA7A58D825B6C319007FE68B /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMJWebADHandler.swift; sourceTree = "<group>"; };
 		FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerViewController.swift; sourceTree = "<group>"; };
+		FAC778162609F1B400EE4293 /* RewardADViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardADViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				FA7A58EF25B81D40007FE68B /* CustomBannerViewController.swift */,
 				FA7A58EC25B7E7F9007FE68B /* SMJWebADHandler.swift */,
 				FA7A58D825B6C319007FE68B /* BannerViewController.swift */,
+				FAC778162609F1B400EE4293 /* RewardADViewController.swift */,
 				FA7A58A825B18DE8007FE68B /* Main.storyboard */,
 				FA7A58AB25B18DEA007FE68B /* Assets.xcassets */,
 				FA7A58AD25B18DEA007FE68B /* LaunchScreen.storyboard */,
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC778172609F1B400EE4293 /* RewardADViewController.swift in Sources */,
 				FA7A58F025B81D40007FE68B /* CustomBannerViewController.swift in Sources */,
 				FA7A58D925B6C319007FE68B /* BannerViewController.swift in Sources */,
 				FA7A58ED25B7E7FA007FE68B /* SMJWebADHandler.swift in Sources */,

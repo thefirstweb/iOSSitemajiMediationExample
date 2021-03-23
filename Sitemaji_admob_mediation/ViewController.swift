@@ -65,8 +65,13 @@ extension ViewController {
         let InterstitialDic = self.makeItemWithGAType(title: "蓋版廣告", action: "controller", link: "InterstitialViewController")
         section1Array.append(InterstitialDic)
         
+        var section2Array:Array<Any> = []
+        let RewardADDic = self.makeItemWithGAType(title: "獎勵式廣告", action: "controller", link: "RewardADViewController")
+        section2Array.append(RewardADDic)
+        
         self.settingList.append(section0Array as! [Dictionary<String, String>])
         self.settingList.append(section1Array as! [Dictionary<String, String>])
+        self.settingList.append(section2Array as! [Dictionary<String, String>])
     }
     
     private func makeItemWithGAType(title:String = "",action:String = "",link:String = "",type:String = "",isShowAccessory:String = "true") -> Dictionary<String, String>{
