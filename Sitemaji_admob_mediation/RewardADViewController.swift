@@ -42,7 +42,7 @@ class RewardADViewController: UIViewController {
     }
     
     @objc func buttonClick() {
-//        showLog(msg: "ad will fetch")
+        showLog(msg: "ad will fetch")
         rewardedAd = createAndLoadRewardedAd(adUnitId:textField.text)
         
         rewardedAd?.load(GADRequest()) { error in
