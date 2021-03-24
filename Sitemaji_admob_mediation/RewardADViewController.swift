@@ -47,42 +47,56 @@ class RewardADViewController: UIViewController {
         
         rewardedAd?.load(GADRequest()) { error in
             if let error = error {
-              print("Loading failed: \(error)")
+                print("Loading failed: \(error)")
+                self.showLog(msg: "Loading failed: \(error)")
             } else {
-              print("Loading Succeeded")
+                print("Loading Succeeded")
+                self.showLog(msg: "Loading Succeeded")
                 self.showAd()
             }
           }
     }
     
     func createAndLoadRewardedAd(adUnitId:String) -> GADRewardedAd {
-      var genRewardedAd = GADRewardedAd(adUnitID: adUnitId)
-      
-      return genRewardedAd
+        showLog(msg: "Rewarded ad will generate")
+        var genRewardedAd = GADRewardedAd(adUnitID: adUnitId)
+        showLog(msg: "Rewarded ad did generate")
+        return genRewardedAd
+    }
+    
+    func showLog(msg:String) {
+        logView.text.append("\(msg) \r\n")
     }
 }
 
 extension RewardADViewController: GADRewardedAdDelegate {
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-      print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        showLog(msg: "Reward received with currency: \(reward.type), amount \(reward.amount).")
     }
     /// Tells the delegate that the rewarded ad was presented.
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
-      print("Rewarded ad presented.")
+        print("Rewarded ad presented.")
+        showLog(msg: "Rewarded ad presented.")
     }
     /// Tells the delegate that the rewarded ad was dismissed.
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
-      print("Rewarded ad dismissed.")
+        print("Rewarded ad dismissed.")
+        showLog(msg: "Rewarded ad dismissed.")
     }
     /// Tells the delegate that the rewarded ad failed to present.
     func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
-      print("Rewarded ad failed to present.")
+        print("Rewarded ad failed to present.")
+        showLog(msg: "Rewarded ad failed to present.")
     }
     
     func showAd() {
         if rewardedAd?.isReady == true {
-               rewardedAd?.present(fromRootViewController: self, delegate:self)
-            }
+            rewardedAd?.present(fromRootViewController: self, delegate:self)
+            showLog(msg: "Rewarded ad did display")
+        }else{
+            showLog(msg: "Rewarded ad not ready")
+        }
     }
 }
