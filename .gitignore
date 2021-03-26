@@ -1,0 +1,12 @@
+### Xcode ###
+build
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+
+### Objective-C ###
+# OS X
+.DS_Store
+
+# CocoaPods
+Pods
