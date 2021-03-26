@@ -6,9 +6,11 @@
 //
 
 import UIKit
+//引用admob sdk
 import GoogleMobileAds
 
 class RewardADViewController: UIViewController {
+    //宣告 reward ad
     var rewardedAd: GADRewardedAd?
     var textField:UITextView!
     var logView:UITextView!
@@ -43,8 +45,10 @@ class RewardADViewController: UIViewController {
     
     @objc func buttonClick() {
         showLog(msg: "ad will fetch")
+        //init reward ad
         rewardedAd = createAndLoadRewardedAd(adUnitId:textField.text)
         
+        //load reward ad
         rewardedAd?.load(GADRequest()) { error in
             if let error = error {
                 print("Loading failed: \(error)")
@@ -57,6 +61,7 @@ class RewardADViewController: UIViewController {
           }
     }
     
+    //init reward ad
     func createAndLoadRewardedAd(adUnitId:String) -> GADRewardedAd {
         showLog(msg: "Rewarded ad will generate")
         var genRewardedAd = GADRewardedAd(adUnitID: adUnitId)
@@ -64,11 +69,24 @@ class RewardADViewController: UIViewController {
         return genRewardedAd
     }
     
+    //show reward ad
+    func showAd() {
+        //check ad is ready
+        if rewardedAd?.isReady == true {
+            //present reward ad
+            rewardedAd?.present(fromRootViewController: self, delegate:self)
+            showLog(msg: "Rewarded ad did display")
+        }else{
+            showLog(msg: "Rewarded ad not ready")
+        }
+    }
+    
     func showLog(msg:String) {
         logView.text.append("\(msg) \r\n")
     }
 }
 
+//reward ad delegate
 extension RewardADViewController: GADRewardedAdDelegate {
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
@@ -89,14 +107,5 @@ extension RewardADViewController: GADRewardedAdDelegate {
     func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
         print("Rewarded ad failed to present.")
         showLog(msg: "Rewarded ad failed to present.")
-    }
-    
-    func showAd() {
-        if rewardedAd?.isReady == true {
-            rewardedAd?.present(fromRootViewController: self, delegate:self)
-            showLog(msg: "Rewarded ad did display")
-        }else{
-            showLog(msg: "Rewarded ad not ready")
-        }
     }
 }
