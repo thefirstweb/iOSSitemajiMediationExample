@@ -46,7 +46,7 @@ PODS:
 DEPENDENCIES:
   - AdMobMediationAdapterVpadn
   - FBAudienceNetwork (= 6.2.0)
-  - Google-Mobile-Ads-SDK
+  - Google-Mobile-Ads-SDK (= 7.69.0)
   - GoogleMobileAdsMediationFacebook
   - VpadnSDK
 
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   VpadnSDK: 2e4507a8a85183e95b872b77441577ef268275c0
 
-PODFILE CHECKSUM: bc79798272cd5cea1fecaf2e4ff1670f5945532b
+PODFILE CHECKSUM: cb51bf9310ee3c196bd16995fa8fc840c46e20a7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

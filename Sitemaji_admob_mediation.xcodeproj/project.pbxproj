@@ -117,11 +117,9 @@
 			buildConfigurationList = FA7A58B325B18DEA007FE68B /* Build configuration list for PBXNativeTarget "Sitemaji_admob_mediation" */;
 			buildPhases = (
 				CDAB508DC24C582AFE5E61B1 /* [CP] Check Pods Manifest.lock */,
-				61A7DB26D8429604C7ABDDAE /* [CP] Prepare Artifacts */,
 				FA7A589B25B18DE8007FE68B /* Sources */,
 				FA7A589C25B18DE8007FE68B /* Frameworks */,
 				FA7A589D25B18DE8007FE68B /* Resources */,
-				27B3D3BB0D19CEA91F7AD381 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,40 +176,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27B3D3BB0D19CEA91F7AD381 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		61A7DB26D8429604C7ABDDAE /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sitemaji_admob_mediation/Pods-Sitemaji_admob_mediation-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CDAB508DC24C582AFE5E61B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
